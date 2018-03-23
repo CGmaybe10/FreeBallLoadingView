@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="fq_bt_selected_bg">#f6f6f6</color>
+    <color name="fq_bt_unselected_bg">#ffffff</color>
+    <color name="fq_bt_selected_text_color">#333333</color>
+    <color name="fq_bt_unselected_text_color">#939393</color>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <com.example.cgmaybe.myapplication.widget.FreeBallView
+        android:id="@+id/logo_free_ball"
+        android:layout_width="30dp"
+        android:layout_height="120dp"
+        app:freeBallRadius="30dp"
+        app:freeBallSrc="@drawable/logo" />
+</LinearLayout>

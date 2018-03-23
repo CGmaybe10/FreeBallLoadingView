@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="freeBallRadius" format="dimension" />
+    <attr name="freeBallSrc" format="reference"/>
+
+    <declare-styleable name="FreeBallView">
+        <attr name="freeBallRadius" />
+        <attr name="freeBallSrc" />
+    </declare-styleable>
+</resources>
