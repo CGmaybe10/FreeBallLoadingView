@@ -38,16 +38,6 @@ public class BallActivity extends AppCompatActivity {
 
     private void startAnimation() {
         mAnimatorSet = new AnimatorSet();
-        ValueAnimator rotateAnimator = ValueAnimator.ofFloat(0f, 1f);
-        rotateAnimator.setDuration(1200);
-        rotateAnimator.setInterpolator(new LinearInterpolator());
-        rotateAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                float rotate = (float) valueAnimator.getAnimatedValue();
-                mFreeBallView.setRotate(rotate);
-            }
-        });
 
         ValueAnimator downTranslateAnimator = ValueAnimator.ofFloat(0f, 1f);
         downTranslateAnimator.setDuration(600);
@@ -100,14 +90,32 @@ public class BallActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
+//                mAnimatorSet.start();
+            }
+        });
+
+        ValueAnimator rotateAnimator = ValueAnimator.ofFloat(0f, 1f);
+        rotateAnimator.setDuration(1200);
+        rotateAnimator.setInterpolator(new LinearInterpolator());
+        rotateAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                float rotate = (float) valueAnimator.getAnimatedValue();
+                mFreeBallView.setRotate(rotate);
+            }
+        });
+        rotateAnimator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
                 mAnimatorSet.start();
             }
         });
 
-        mAnimatorSet.play(downTranslateAnimator).after(rotateAnimator);
         mAnimatorSet.play(scaleDownValueAnimator).after(downTranslateAnimator);
         mAnimatorSet.play(scaleUpValueAnimator).after(scaleDownValueAnimator);
         mAnimatorSet.play(upTranslateAnimator).after(scaleDownValueAnimator);
+        mAnimatorSet.play(rotateAnimator).after(upTranslateAnimator);
         mAnimatorSet.start();
     }
 }
